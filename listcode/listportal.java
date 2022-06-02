@@ -8,7 +8,7 @@ import listcode.staticlists.grocerylist;
 
 class listportal {
     public static int userInt;
-    public static void main(String[] args) {
+    public static void main(String[] args) { // introduction 
        Scanner uInput = new Scanner(System.in);
 
        System.out.println("Welcome to List Management, what lists would you like to use?\n1.) Static Arrays\n2.) Non-static Arrays");
@@ -28,13 +28,14 @@ class listportal {
         } catch (InputMismatchException ie) {
             System.out.println("======================");
             System.out.println("That is not a valid input, please try again.");
+            main(args);
         }
        uInput.close();
     }
 
-    public static void staticLists() {
+    public static void staticLists() { // static lists
         Scanner uInput = new Scanner(System.in);
-        doglist dl = new doglist();
+        doglist dl = new doglist(null, null, userInt); // change 
         grocerylist gl = new grocerylist();
         freeResp fr = new freeResp();
        
@@ -68,7 +69,7 @@ class listportal {
            uInput.close();
     }
 
-    public static void nonsLists() {
+    public static void nonsLists() { // non static lists
         Scanner uInput = new Scanner(System.in);
         freeResp fr = new freeResp();
 
