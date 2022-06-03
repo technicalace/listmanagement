@@ -14,7 +14,7 @@ public class doglist extends dog{
         int uResp; 
        
         System.out.println("You have chosen Dog List."); // lines 23-24: opening sequence 
-        System.out.println("What type of dog list would you like to use?\n1.) Dogs in Order\n2.) Selecting Dogs using Index\n3.) Selecting Dogs using Name");
+        System.out.println("What type of dog list would you like to use?\n1.) Dogs in Order\n2.) Selecting Dogs using Index\n3.) Selecting Dogs using Name\n4.) Sort through Name Array");
         // lines 26-51: switch statement guiding user to dog lists 
         try {
         uResp = scan.nextInt();
@@ -30,6 +30,10 @@ public class doglist extends dog{
             case 3: 
                 System.out.println("======================");
                 nameDog();
+                break;
+            case 4: 
+                System.out.println("======================");
+                arrNameD();
                 break;
             default: 
                 System.out.println("======================");
@@ -116,25 +120,38 @@ public class doglist extends dog{
 
         try {
         uResp = scan.nextLine();
-        if(uResp.equalsIgnoreCase("Poodle")) {          
+        if(uResp.equalsIgnoreCase("Poodle")) { // POODLE       
             System.out.println("==========");
             System.out.println(dg1.getName() + "\n==========\n"+ dg1.getDesc() + "\nAge: " + dg1.getAge() + "\n==========\n"); // prints dog one 
-        } else if(uResp.equalsIgnoreCase("Pitbull")) {
+        } else if(uResp.equalsIgnoreCase("Pitbull")) { // PITBULL
             System.out.println("==========");
             System.out.println(dg2.getName() + "\n==========\n"+ dg2.getDesc() + "\nAge: " + dg2.getAge() + "\n==========\n"); // prints dog two 
-        } else if(uResp.equalsIgnoreCase("Retro Pug")) {
+        } else if(uResp.equalsIgnoreCase("Retro Pug")) { // RETRO PUG
             System.out.println("==========");
             System.out.println(dg3.getName() + "\n==========\n"+ dg3.getDesc() + "\nAge: " + dg3.getAge() + "\n==========\n"); // prints dog three
-        } else {
+        } else { // ERROR OUTPUT: INT OUT OF BOUNDS 
             System.out.println("==========");
             System.out.println("That is not a valid input, please try again.");
             nameDog();
         }
-        } catch (InputMismatchException ie) {
+        } catch (InputMismatchException ie) { // ERROR OUTPUT: WRONG INDEX 
             System.out.println("==========");
             System.out.println("That is not a valid input, please try again.");
             nameDog();
         }
         scan.close();
+    }
+
+    void arrNameD() { // prints out string array of breeds
+        int i; 
+
+        String[] dogNames = {"Poodle", "Pitbull", "Retro Pug", 
+                            "Golden Retriever", "German Shepard", 
+                            "Alaskan Malamute", "Beagle"}; 
+        
+        System.out.println("Here is your array");
+        for(i = 0; i <= 6; i++) { // uses i as index (i starts at 0 then sorts trough string array of breeds until it reaches the last name (index 6))
+            System.out.println(dogNames[i]); // prints out the process 
+        }
     }
 }
