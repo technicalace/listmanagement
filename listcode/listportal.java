@@ -22,6 +22,7 @@ class listportal {
                 System.out.println("======================");
                 nonsLists();
             } else {
+                System.out.println("======================");
                 System.out.println("That is not a valid input, please try again.");
                 main(args);
             }
@@ -35,7 +36,7 @@ class listportal {
 
     public static void staticLists() { // static lists
         Scanner uInput = new Scanner(System.in);
-        doglist dl = new doglist(null, null, userInt); // change 
+        doglist dl = new doglist();
         grocerylist gl = new grocerylist();
         freeResp fr = new freeResp();
        
