@@ -122,22 +122,223 @@ public class listRand {
 
     void intLists() {
         Scanner scan = new Scanner(System.in);
-        int uResp; 
+        int uResp, i; 
+
+        ArrayList<Integer> intList = new ArrayList<Integer>();
+        intList.add(34); 
+        intList.add(993);
+        intList.add(3);
+        intList.add(45);
+        intList.add(1000);
+
         System.out.println("You have chosen Integer Lists, which function would you like to use for random integer list?");
+        System.out.println("1.) Print out in Order\n2.) Print Highest Integer\n3.) Print Integer in specified Index");
+
+        try {
+            uResp = scan.nextInt(); 
+            switch(uResp) {
+                case 1: 
+                    System.out.println("======================");
+                    for(i = 0; i <= 4; i ++) {
+                        System.out.println(intList.get(i));
+                    }
+                    break; 
+                case 2: 
+                    System.out.println("======================");
+                    System.out.println("You have chosen to print the highest integer.\n\n");
+                    System.out.println(Collections.max(intList));
+                    break;
+                case 3: 
+                    System.out.println("======================");
+                    System.out.println("Please select index between (1-5): ");
+                    i = scan.nextInt(); 
+                    switch(i) {
+                        case 1: 
+                            System.out.println("======================");
+                            System.out.println(intList.get(0));
+                            break; 
+                        case 2: 
+                            System.out.println("======================");
+                            System.out.println(intList.get(1));
+                            break; 
+                        case 3: 
+                            System.out.println("======================");
+                            System.err.println(intList.get(2));
+                            break; 
+                        case 4: 
+                            System.out.println("======================");
+                            System.out.println(intList.get(3));
+                            break;
+                        case 5: 
+                            System.out.println("======================");
+                            System.out.println(intList.get(4));
+                            break; 
+                        default:
+                            System.out.println("======================");
+                            System.out.println("That is not a valid input, please try again.");
+                            break; 
+                    }
+                default: 
+                    System.out.println("======================");
+                    System.out.println("That is not a valid input, please try again.");
+                    break;
+            }
+            } catch (InputMismatchException ie) {
+                System.out.println("======================");
+                System.out.println("That is not a valid input, please try again.");
+                intLists();
+            }
 
     }
 
     void doubleLists() {
         Scanner scan = new Scanner(System.in);
-        int uResp; 
-        System.out.println("You have chosen Double Lists, which function would you like to use for random double list?");
+        int uResp, i; 
 
+        ArrayList<Double> doubList = new ArrayList<Double>(); 
+        doubList.add(90.5); 
+        doubList.add(3.45); 
+        doubList.add(456.7); 
+        doubList.add(12.0);
+        doubList.add(4.23);
+
+        System.out.println("You have chosen Double Lists, which function would you like to use for random double list?");
+        System.out.println("1.) Print in Order\n2.) Print Largest\n3.) Print from Index");
+
+        try {
+        uResp = scan.nextInt(); 
+        switch(uResp) {
+            case 1: 
+                System.out.println("======================");
+                System.out.println("You have chosen to print the doubles in order:");
+                for (i = 0; i <= 4; i++) {
+                    System.out.println(doubList.get(i));
+                }
+                break; 
+            case 2: 
+                System.out.println("======================");
+                System.out.println("You have chosen to print the largest double\n"+Collections.max(doubList));
+                break;
+            case 3: 
+                System.out.println("======================");
+                System.out.println("Please choose your index (1-5)");
+                i = scan.nextInt(); 
+                switch(i) {
+                    case 1: 
+                        System.out.println("======================");
+                        System.out.println(doubList.get(0));
+                        break; 
+                    case 2: 
+                        System.out.println("======================");
+                        System.out.println(doubList.get(1));
+                        break; 
+                    case 3: 
+                        System.out.println("======================");
+                        System.out.println(doubList.get(2));
+                        break; 
+                    case 4: 
+                        System.out.println("======================");
+                        System.out.println(doubList.get(3));
+                        break; 
+                    case 5: 
+                        System.out.println("======================");
+                        System.out.println(doubList.get(4));
+                        break; 
+                    default: 
+                    System.out.println("======================");
+                    System.out.println("That is not a valid input, please try again.");
+                    doubleLists();
+                    break;
+                }
+            default: 
+                System.out.println("======================");
+                System.out.println("That is not a valid input, please try again.");
+                doubleLists();
+                break; 
+        }
+        } catch(InputMismatchException ie) {
+            System.out.println("======================");
+            System.out.println("That is not a valid input, please try again.");
+            doubleLists();
+        }
+        scan.close();
     }
 
     void charLists() {
         Scanner scan = new Scanner(System.in);
-        int uResp; 
-        System.out.println("You have chosen Character Lists, which function would you like to use for random character list?");
+        int uResp, i;
+        
+        ArrayList<Character> charList = new ArrayList<Character>();
+        charList.add('a');
+        charList.add('b');
+        charList.add('c');
+        charList.add('d');
+        charList.add('e');
 
+        System.out.println("You have chosen Character Lists, which function would you like to use for random character list?");
+        System.out.println("1.) Print in Order\n2.) Print from Index\n3.) Print length of Array");
+
+        try {
+            uResp = scan.nextInt(); 
+            switch(uResp) {
+                case 1: 
+                    System.out.println("======================");
+                    for (i = 0; i <= 4; i++) {
+                        System.out.println(charList.get(i));
+                    }
+                    break; 
+                case 2: 
+                    System.out.println("======================");
+                    System.out.println("Select your index(1-5): ");
+                    try {
+                        i = scan.nextInt(); 
+                        switch(i) {
+                            case 1: 
+                                System.out.println("======================");
+                                System.out.println(charList.get(0));
+                                break;
+                            case 2: 
+                                System.out.println("======================");
+                                System.out.println(charList.get(1));
+                                break; 
+                            case 3: 
+                                System.out.println("======================");
+                                System.out.println(charList.get(2));
+                                break; 
+                            case 4: 
+                                System.out.println("======================");
+                                System.out.println(charList.get(3));
+                                break; 
+                            case 5: 
+                                System.out.println("======================");
+                                System.out.println(charList.get(4));
+                                break; 
+                            default: 
+                                System.out.println("======================");
+                                System.out.println("That is an invalid input, please try again.");
+                                charLists();
+                                break;
+                        }
+                    } catch(InputMismatchException ie) {
+                        System.out.println("======================");
+                        System.out.println("That is not a valid input, please try again.");
+                    }
+                    break;
+                case 3: 
+                    System.out.println("======================");
+                    System.out.println("The size of the array is: ");
+                    System.out.println(charList.size());
+                    break; 
+                default: 
+                    System.out.println("======================");
+                    System.out.println("That is an invalid input, please try again.");
+                    charLists();
+                    break; 
+            }
+        } catch (InputMismatchException ie) {
+            System.out.println("======================");
+            System.out.println("That is not a valid input, please try again.");
+            charLists();
+        }
     }
 }
