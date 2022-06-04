@@ -5,6 +5,7 @@ import java.util.Scanner;
 import listcode.nonstatic.freeResp;
 import listcode.staticlists.doglist;
 import listcode.staticlists.grocerylist;
+import listcode.staticlists.listRand;
 
 class listportal {
     public static int userInt;
@@ -38,35 +39,32 @@ class listportal {
         Scanner uInput = new Scanner(System.in);
         doglist dl = new doglist();
         grocerylist gl = new grocerylist();
+        listRand lr = new listRand();
         freeResp fr = new freeResp();
        
-        System.out.println("You have chosen static lists, which list do you find most desirable?\n1.) Dog List\n2.) Grocery List");
+        System.out.println("You have chosen static lists, which list do you find most desirable?\n1.) Dog List\n2.) Grocery List\n3.) Random Lists");
 
+        try {
         userInt = uInput.nextInt(); 
-
         if (userInt == 1) { // dog list input 
-            try {
                 System.out.println("======================");
                 dl.dogPortal();
-            } catch (InputMismatchException ie) {
-                System.out.println("======================");
-                System.out.println("That is not a valid input, please try again.");
-                staticLists();
-            }
            } else if (userInt == 2) { // grocery list input 
-            try {
                 System.out.println("======================");
                 gl.groceryPortal();
-            } catch (InputMismatchException ie) {
-                System.out.println("======================");
-                System.out.println("That is not a valid input, please try again.");
-                staticLists();
-            } 
+           } else if (userInt == 3) {
+                System.out.println("======================"); 
+                lr.lrandPortal(); 
            } else { // error input 
                System.out.println("======================");
                System.out.println("That is not a valid input, please try again.");
                staticLists();
            } 
+        } catch (InputMismatchException ie) {
+            System.out.println("======================");
+            System.out.println("That is not a valid input, please try again.");
+            staticLists();
+        }
            uInput.close();
     }
 
