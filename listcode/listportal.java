@@ -5,6 +5,7 @@ import java.util.Scanner;
 import listcode.nonstatic.freeResp;
 import listcode.staticlists.doglist;
 import listcode.staticlists.grocerylist;
+import listcode.staticlists.listMatrix;
 import listcode.staticlists.listRand;
 
 class listportal {
@@ -40,10 +41,9 @@ class listportal {
         doglist dl = new doglist();
         grocerylist gl = new grocerylist();
         listRand lr = new listRand();
-        freeResp fr = new freeResp();
+        listMatrix lm = new listMatrix(); 
        
-        System.out.println("You have chosen static lists, which list do you find most desirable?\n1.) Dog List\n2.) Grocery List\n3.) Random Lists");
-
+        System.out.println("You have chosen static lists, which list do you find most desirable?\n1.) Dog List\n2.) Grocery List\n3.) Random Lists\n4.) List Matrixes");
         try {
         userInt = uInput.nextInt(); 
         if (userInt == 1) { // dog list input 
@@ -55,6 +55,9 @@ class listportal {
            } else if (userInt == 3) {
                 System.out.println("======================"); 
                 lr.lrandPortal(); 
+           } else if (userInt == 4) {
+                System.out.println("======================");
+                lm.matrixPort();
            } else { // error input 
                System.out.println("======================");
                System.out.println("That is not a valid input, please try again.");
