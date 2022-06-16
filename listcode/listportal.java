@@ -5,6 +5,7 @@ import java.util.Scanner;
 import listcode.nonstatic.freeResp;
 import listcode.staticlists.doglist;
 import listcode.staticlists.grocerylist;
+import listcode.staticlists.listMatrix;
 import listcode.staticlists.multList;
 import listcode.staticlists.listRand;
 
@@ -42,27 +43,37 @@ class listportal {
         grocerylist gl = new grocerylist();
         listRand lr = new listRand();
         multList ml = new multList(); 
+        listMatrix lm = new listMatrix(); 
        
-        System.out.println("You have chosen static lists, which list do you find most desirable?\n1.) Dog List\n2.) Grocery List\n3.) Random Lists\n4.) Multi Array Lists");
+        System.out.println("You have chosen static lists, which list do you find most desirable?\n1.) Dog List\n2.) Grocery List\n3.) Random Lists\n4.) Multi Array Lists\n5.) List Matrix");
         try {
         userInt = uInput.nextInt(); 
-        if (userInt == 1) { // dog list input 
+        switch (userInt) {
+            case 1: 
                 System.out.println("======================");
                 dl.dogPortal();
-           } else if (userInt == 2) { // grocery list input 
+                break;
+            case 2: 
                 System.out.println("======================");
                 gl.groceryPortal();
-           } else if (userInt == 3) {
+                break;
+            case 3: 
                 System.out.println("======================"); 
-                lr.lrandPortal(); 
-           } else if (userInt == 4) {
+                lr.lrandPortal();
+                break; 
+            case 4: 
                 System.out.println("======================");
                 ml.multPort();
-           } else { // error input 
-               System.out.println("======================");
-               System.out.println("That is not a valid input, please try again.");
-               staticLists();
-           } 
+                break;
+            case 5: 
+                System.out.println("======================");
+                lm.matrixPort();
+                break;
+            default: 
+                System.out.println("======================");
+                System.out.println("That input is out of bounds, please try again.");
+                break;
+        }
         } catch (InputMismatchException ie) {
             System.out.println("======================");
             System.out.println("That is not a valid input, please try again.");
