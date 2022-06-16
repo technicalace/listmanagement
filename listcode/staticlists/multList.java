@@ -12,7 +12,7 @@ public class multList {
         int uResp;
         
         System.out.println("You have chosen the multi array list ");
-        System.out.println("What type of multi array would you prefer?\n1.) 2D Array\n2.) Multidemensional Array");
+        System.out.println("What type of multi array would you prefer?\n1.) 2D Array\n2.) 3D Array");
 
         try {
         uResp = scan.nextInt(); 
@@ -44,6 +44,8 @@ public class multList {
         stringArray.add(new LinkedHashSet<String>(Arrays.asList("World", "Tell", "Me")));
         stringArray.add(new LinkedHashSet<String>(Arrays.asList("Why", "Ain't", "Nothin", "But")));
         stringArray.add(new LinkedHashSet<String>(Arrays.asList("A", "Mistake")));
+        // 2D INTEGER ARRAY
+        int[][] intArray = {{1, 2}, {3, 4}}; 
 
         System.out.println("You have chosen 2D Arrays");
         System.out.println("Choose which variable to use:\n1.) String\n2.) Integer");
@@ -51,30 +53,45 @@ public class multList {
             uResp = scan.nextInt();
             if (uResp == 1) {
                 System.out.println("======================");
-                System.out.println("You have chosen String.\n How would you like to iterate through a 2D String array?");
-                System.out.println("1) In Order\n2.) By Index");
-                if (uResp == 1) {
-                    System.out.println("======================");
-                    System.out.println(stringArray);
-                } else if (uResp == 2) {
-                    System.out.println("======================");
-                    System.out.println("Select your index ");
-                }
+                System.out.println("You have chosen String.\nHere is your printed array of Strings: ");
+                System.out.println(stringArray);
             } else if (uResp == 2) {
                 System.out.println("======================");
-            
-                
+                for (int i = 0; i < 2; i++) {
+                    for (int j = 0; j < 2; j++) {
+                        System.out.print(intArray[i][j] + " ");
+                    }
+                    System.out.println();
+                }
             } else {
                 System.out.println("======================");
-
+                System.out.println("That input is out of bounds, please try again.");
+                twodArray();
             }
         } catch (InputMismatchException ie) {
             System.out.println("======================");
-
+            System.out.println("That is not a valid input, please try again.");
+            twodArray();
         }
+        scan.close();
     }
 
     void multiArray() {
-        System.out.println("You have chosen Multidemensional Array.");
+        Scanner scan = new Scanner(System.in); 
+        int uResp;
+
+        int[][][] intArray = {{{1, 2}, {3, 4}}, {{5, 6}, {7, 8}}}; 
+
+        System.out.println("You have chosen 3D Array.");
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                for (int k = 0; k < 2; k++) {
+                    System.out.print(intArray[i][j][k] + " ");
+                }
+                System.out.println();
+            }
+            System.out.println();
+        }
     }
+    
 }
