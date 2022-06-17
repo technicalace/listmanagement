@@ -61,6 +61,12 @@ public class listMatrix {
     }
     // function to print in spiral order 
     public static List<Integer> spiralOrder(int[][] matrix) {
+        // di = FACING DIRECTION
+        // dr = DIRECTION ROW
+        // dc = DIRECTION COLUMN 
+        // cr = (COLUMN, ROW)
+        // cc = (COLUMN, COLUMN)
+
         List<Integer> ans = new ArrayList<Integer>();
 
         if (matrix.length == 0) {
@@ -71,7 +77,7 @@ public class listMatrix {
         boolean[][] seen = new boolean[m][n]; 
         int[] dr = { 0, 1, 0, -1 };
         int[] dc = { 1, 0, -1, 0}; 
-        int x =0, y = 0, di = 0;
+        int x =0, y = 0, di = 0; 
         // ITERATE FROM 0 TO R * C - 1
         for (int i  = 0; i < m * n; i++) {
             ans.add(matrix[x][y]); 
