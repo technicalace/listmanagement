@@ -69,18 +69,13 @@ public class listMatrix {
             i = iterator 
          */
 
+
          while (k < m && l < n) {
             // print the first row from the remaining rows
             for (i = 0; i < n; i++) { 
                 System.out.println(intMatrix[k][i] + " ");
             }
             k++; 
-
-            // print the last column from the remaining columns 
-            for (i = k; i < m; ++i) {
-                System.out.println(intMatrix[i][n - 1] + " ");
-            }
-            n --; 
 
             // print the last row from the remaining rows 
             if (k < m) {
