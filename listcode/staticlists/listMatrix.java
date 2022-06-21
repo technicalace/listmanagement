@@ -49,7 +49,7 @@ public class listMatrix {
 
     void cloSpiral() {
         Scanner scan = new Scanner(System.in);
-        int uInput; 
+        int uInput, R = 4, C = 4; 
 
         int[][] intMatrix = {{1, 2, 3, 4}, 
                              {5, 6, 7, 8},
@@ -57,37 +57,47 @@ public class listMatrix {
                              {13, 14, 15, 16}}; 
 
         System.out.println("You have chosen to traverse using Counter-Clockwise Spiral Form.");
-        System.out.println(spiralOrder(intMatrix));
+        spiralPrint(R, C, intMatrix);
     }
     // function to print in spiral order 
-    public static List<Integer> spiralOrder(int[][] matrix) {
-        List<Integer> ans = new ArrayList<Integer>();
+    static void spiralPrint(int m, int n, int intMatrix[][]) {
+        int i, k = 0, l = 0; 
+        /*  k - starting row index 
+            m - ending row index 
+            l - starting column index 
+            n - ending column index 
+            i = iterator 
+         */
 
-        if (matrix.length == 0) {
-            return ans;
-        }
-
-        int m = matrix.length, n = matrix[0].length; 
-        boolean[][] seen = new boolean[m][n]; 
-        int[] dr = { 0, 1, 0, -1 };
-        int[] dc = { 1, 0, -1, 0}; 
-        int x =0, y = 0, di = 0;
-        // ITERATE FROM 0 TO R * C - 1
-        for (int i  = 0; i < m * n; i++) {
-            ans.add(matrix[x][y]); 
-            seen[x][y] = true; 
-            int cr = x + dr[di]; 
-            int cc = y + dc[di]; 
-
-            if (0 <= cr && cr < m && 0 <= cc && cc < n && !seen[cr][cc]) {
-                x = cr; 
-                y = cc; 
-            } else {
-                di = (di + 1) % 4; 
-                x += dr[di];
-                y += dc[di];
+         while (k < m && l < n) {
+            // print the first row from the remaining rows
+            for (i = 0; i < n; i++) { 
+                System.out.println(intMatrix[k][i] + " ");
             }
-        }
-        return ans;
+            k++; 
+
+            // print the last column from the remaining columns 
+            for (i = k; i < m; ++i) {
+                System.out.println(intMatrix[i][n - 1] + " ");
+            }
+            n --; 
+
+            // print the last row from the remaining rows 
+            if (k < m) {
+                for (i = n - 1; i >= l; --i) {
+                    System.out.println(intMatrix[m - 1][i] + " ");
+                }
+                m--;
+            }
+
+            // print the first column from the remaining columns
+            if (l < n) {
+                for (i = m - 1; i >= k; --i) {
+                    System.out.println(intMatrix[i][l] + " ");
+                }
+                l++;
+            }
+         }
     }
+    
 }
