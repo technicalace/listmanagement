@@ -40,11 +40,73 @@ public class listMatrix {
 
     void counterSpirl() {
         Scanner scan = new Scanner(System.in);
-        int uInput; 
+        int uInput, R = 4, C = 4; 
 
-        int[][] intMatrix = {{1, 2, 3}, {4, 5, 6}}; 
+        int[][] intMatrix = {{1, 2, 3, 4}, 
+                             {5, 6, 7, 8},
+                            {9, 10, 11, 12},
+                            {13, 14, 15, 16}}; 
 
         System.out.println("You have chosen to traverse using Spiral Form.");
+        countSpiralPrint(R, C, intMatrix);
+    }
+
+    static void countSpiralPrint(int m, int n, int intMatrix[][]) {
+        int i, k = 0, l = 0;
+        /* k - starting row index 
+           m - ending row index 
+           l - starting cloumn index 
+           n - ending column index 
+           i - iterator 
+        */        
+        // initialze count 
+        int cnt = 0;
+
+        // total number of elements in matrix 
+        int total = m * n; 
+
+        while (k < m && l < n) {
+            if (cnt == total) {
+                break;
+            }
+
+            // print the first column from the remaining columns 
+            for (i = k; i < m; ++i) {
+                System.out.println(intMatrix[i][l] + " ");
+                cnt++;
+            }
+            l++; 
+
+            if (cnt == total) {
+                break;
+            }
+
+            // print the last row from the remaining rows 
+            for (i = l; i < n; ++i) {
+                System.out.println(intMatrix[m - 1][i] + " ");
+            }
+            m--;
+
+            // print the last column from the remaing columns 
+            if (k < m) {
+                for (i = m - 1; i >= k; --i) {
+                    System.out.println(intMatrix[i][n - 1] + "" );
+                    cnt++; 
+                }
+            }
+
+            if (cnt == total) {
+                break; 
+            }
+            // print from the first row, from the remaining rows 
+            if (l < n) {
+                for (i = n - 1; i >= l; --i) {
+                    System.out.println(intMatrix[k][i] + " ");
+                    cnt++;
+                }
+                k++;
+            }
+        }
     }
 
     void cloSpiral() {
@@ -56,7 +118,7 @@ public class listMatrix {
                              {9, 10, 11, 12 }, 
                              {13, 14, 15, 16}}; 
 
-        System.out.println("You have chosen to traverse using Counter-Clockwise Spiral Form.");
+        System.out.println("You have chosen to traverse using Clockwise Spiral Form.");
         spiralPrint(R, C, intMatrix);
     }
     // function to print in spiral order 
